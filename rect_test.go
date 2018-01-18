@@ -26,11 +26,13 @@ func TestDraw(t *testing.T) {
 		B: 1,
 	}, 5)
 
-	DrawRectangle(img, r)
+	imgNRGBA := DrawRectangle(img, r)
+
+	ICatPngNRGBA(imgNRGBA)
 }
 
 func TestRect(t *testing.T) {
-	SetRectangle(img,
+	imgNRGBA := SetRectangle(img,
 		NewRecter(50, 15, 90, 45, color.RGBA{
 			A: 255,
 			R: 255,
@@ -39,10 +41,12 @@ func TestRect(t *testing.T) {
 			A: 255,
 			R: 255,
 		}, 5))
+
+	ICatPngNRGBA(imgNRGBA)
 }
 
 func TestRect2(t *testing.T) {
-	SetRectangle(img,
+	imgNRGBA := SetRectangle(img,
 		NewRecter(90, 15, 50, 45, color.RGBA{
 			A: 255,
 			R: 255,
@@ -51,4 +55,5 @@ func TestRect2(t *testing.T) {
 			A: 255,
 			R: 255,
 		}, 5))
+	ICatPngNRGBA(imgNRGBA)
 }

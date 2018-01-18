@@ -1,7 +1,6 @@
 package rect
 
 import (
-	// "fmt"
 	"image"
 	"image/color"
 )

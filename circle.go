@@ -25,3 +25,6 @@ func (c *circle) At(x, y int) color.Color {
 	}
 	return color.Alpha{255}
 }
+
+// draw.DrawMask(dst, imgsrc.Bounds(), imgsrc, image.ZP, tar, image.ZP, draw.Over)
+// draw.DrawMask(dst, imgsrc.Bounds(), imgsrc, image.ZP, &circle{image.Pt(100, 200), 100}, image.ZP, draw.Src)
