@@ -1,40 +1,28 @@
 package rect
 
 import (
-	"fmt"
-	"image"
 	"image/color"
 	"image/jpeg"
 	"os"
 	"testing"
-
-	"github.com/toukii/bytes"
-	"github.com/toukii/icat"
 )
 
 func TestRect(t *testing.T) {
-	rect := image.Rect(0, 0, 600, 400)
-	bg := image.NewNRGBA(rect)
-
-	Rect(bg, 100, 100, 300, 300, color.RGBA{
-		A: 255,
-		R: 255,
-	})
-
-	wr := bytes.NewWriter(make([]byte, 0, 10240))
-
-	err := jpeg.Encode(wr, bg, &jpeg.Options{90})
+	fd, err := os.Open("gosea.jpg")
 	if err != nil {
 		panic(err)
 	}
+	bg, _ := jpeg.Decode(fd)
 
-	img, err := jpeg.Decode(bytes.NewReader(wr.Bytes()))
-	if err != nil {
-		panic(err)
-	}
-
-	err = icat.ICat(img, os.Stdout)
-	if err != nil {
-		fmt.Println(err)
-	}
+	// Draw(bg, 50, 50, 100, 100)
+	// return
+	SetRectangle(bg,
+		NewRecter(50, 15, 90, 45, color.RGBA{
+			A: 255,
+			R: 255,
+		}, 1),
+		NewRecter(50, 110, 130, 190, color.RGBA{
+			A: 255,
+			R: 255,
+		}, 5))
 }
