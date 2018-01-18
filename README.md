@@ -4,7 +4,10 @@ golang image draw rect
 
 ## usage
 
-```		
+
+ - 1 DrawRectangle
+
+```
 r := NewRectangle(50, 110, 130, 190, color.RGBA{
 		A: 255,
 		R: 255,
@@ -12,9 +15,14 @@ r := NewRectangle(50, 110, 130, 190, color.RGBA{
 		B: 1,
 	}, 5)
 DrawRectangle(img, r)
+ICatPngNRGBA(imgNRGBA)
+```
 
 
-SetRectangle(img,
+ - 2 SetRectangle
+
+```
+imgNRGBA := SetRectangle(img,
 	NewRecter(50, 15, 90, 45, color.RGBA{
 		A: 255,
 		R: 255,
@@ -23,7 +31,9 @@ SetRectangle(img,
 		A: 255,
 		R: 255,
 	}, 5))
-```		
+
+ICatPngNRGBA(imgNRGBA)
+```
 
 ## test
 
